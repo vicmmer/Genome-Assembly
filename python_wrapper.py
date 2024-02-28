@@ -9,6 +9,9 @@ k_mer_sizes = "77,99,127"
 # Define the number of threads to use
 num_threads = 2
 
+''' Thispart may change depending on the user's chosen database /reference, if different, user must change the 
+link for download for their specific reference as well as the index_base name for their database''' 
+
 #Download the HCMV reference 
 wget_command = 'wget -O HCMV_reference.fasta "https://www.ncbi.nlm.nih.gov/sviewer/viewer.fcgi?id=NC_006273.2&report=fasta&retmode=text"'
 subprocess.run(wget_command, shell=True, check=True)
@@ -19,6 +22,7 @@ subprocess.run(bowtie_command, shell = True, check = True)
 
 # Define the HCMV index base name
 index_base = "HCMV_index"
+'''Changes stop here for the user '''
 
 # Define function to count reads in a fastq file
 def count_reads(file_path):
