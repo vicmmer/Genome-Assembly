@@ -7,7 +7,17 @@ It is assumed that in this script, you will use the HCMV (NCBI accession NC_0062
 
 ## Dependencies 
 You will need to have the following dependencies installed: 
-1. 
+1.BLAST
+	Visit the [BLAST website](https://blast.ncbi.nlm.nih.gov/Blast.cgi) to download and install BLAST according to your operating system.
+	Follow the installation instructions provided by the BLAST documentation.
+
+2.Bowtie
+	Visit the [Bowtie website](http://bowtie-bio.sourceforge.net/index.shtml) to download and install Bowtie according to your operating system.
+	Follow the installation instructions provided by the Bowtie documentation.
+
+3. SPAdes
+	Visit the [SPAdes GitHub repository](https://github.com/ablab/spades) to download and install SPAdes according to your operating system.
+	Follow the installation instructions provided in the SPAdes documentation. 
 
 
 The sample data used to run this pipeline is a subset of the whole sequence, to make it more easily processable. Users might already have their data ready, but to make it easier I will show how I automated the download of my samples. I created a text file containing the accession numbers of my samples to download called accessionsList.txt, the python script download_accessions.py was run to download and split the files into forward and reverse reads. Both of these files are provided for reference.  
