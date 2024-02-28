@@ -6,3 +6,11 @@ What you will need for to be able to run this script is simply your raw files, i
 It is assumed that in this script, you will use the HCMV (NCBI accession NC_006273.2) as a reference to build a database, however this can be changed within the script.
 
 The sample data used to run this pipeline is a subset of the whole sequence, to make it more easily processable. Users might already have their data ready, but to make it easier I will show how I automated the download of my samples. I created a text file containing the accession numbers of my samples to download called accessionsList.txt, the python script download_accessions.py was run to download and split the files into forward and reverse reads. Both of these files are provided for reference.  
+How to run data: 
+1. Once samples are downloaded, (one forward and reverse read file for each sample) you will have to run the python_wrapper.py script with the following command: python python_wrapper.py
+2. The script should run in about 2-3 minutes and will produce many output files. A description follows below:
+   a) SampleName_filtered.*.fastq: these are the filtered fastq files, filtered to keep only the reads that map to the index, in this case the HCMV index.
+   b) HCMV_index.*.bt2 : Bowtie2 produces multiple index files because it divides the index into multiple parts for efficient memory usage and faster alignment. Each of these index files serves a different purpose and will be used in the alignment process
+   c) blast_hits.csv: Contains the top 10 blast hits to the ncbi database created.
+   d) temp.log: this is just a temporary log file that will be combined with the blast_hits.csv file later to produce the final log file.
+  e) PipelineProject.log: THIS IS THE MOST IMPORTANT file that reports the number of reads in each sample before and after filtering, the numver of contigs in the assembly that are larger than 1000 bp, the number of base pairs in the assembly, and a table with information for the top 10 blast hits. 
