@@ -7,11 +7,11 @@ It is assumed that in this script, you will use the HCMV (NCBI accession NC_0062
 
 ## Dependencies 
 You will need to have the following dependencies installed: 
-1.BLAST
+1. BLAST
 	Visit the [BLAST website](https://blast.ncbi.nlm.nih.gov/Blast.cgi) to download and install BLAST according to your operating system.
 	Follow the installation instructions provided by the BLAST documentation.
 
-2.Bowtie
+2.  Bowtie
 	Visit the [Bowtie website](http://bowtie-bio.sourceforge.net/index.shtml) to download and install Bowtie according to your operating system.
 	Follow the installation instructions provided by the Bowtie documentation.
 
