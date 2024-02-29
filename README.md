@@ -1,35 +1,41 @@
-# Pipeline Overview 
-Using this repository you will be able to process your samples to produce a genome assembly, and get a table of top blast hits associated with your samples.
+# NCBI Datasets
 
-What you will need for to be able to run this script is simply your raw files, in this case you may use the sample files provided
+https://www.ncbi.nlm.nih.gov/datasets
 
-It is assumed that in this script, you will use the HCMV (NCBI accession NC_006273.2) as a reference to build a database, however this can be changed within the script.
+This zip archive contains an NCBI Datasets Data Package.
 
-## Dependencies 
-You will need to have the following dependencies installed: 
-1. BLAST
-	Visit the [BLAST website](https://blast.ncbi.nlm.nih.gov/Blast.cgi) to download and install BLAST according to your operating system.
-	Follow the installation instructions provided by the BLAST documentation.
+NCBI Datasets Data Packages can include sequence, annotation and other data files, and metadata in one or more data report files.
+Data report files are in JSON Lines format.
 
-2.  Bowtie
-	Visit the [Bowtie website](http://bowtie-bio.sourceforge.net/index.shtml) to download and install Bowtie according to your operating system.
-	Follow the installation instructions provided by the Bowtie documentation.
+---
+## FAQs
+### Where is the data I requested?
 
-3. SPAdes
-	Visit the [SPAdes GitHub repository](https://github.com/ablab/spades) to download and install SPAdes according to your operating system.
-	Follow the installation instructions provided in the SPAdes documentation. 
+Your data is in the subdirectory `ncbi_dataset/data/` contained within this zip archive.
 
-## Data 
-The sample data used to run this pipeline is a subset of the whole sequence, to make it more easily processable. Users might already have their data ready, but to make it easier I will show how I automated the download of my samples. I created a text file containing the accession numbers from NCBI of my samples to download called accessionsList.txt, the python script download_accessions.py was run to download and split the files into forward and reverse reads. Both of these files are provided for reference. File names: **accessionList.txt** and **download_accessions.py**
+### I still can't find my data, can you help?
 
-## How to Run the Script ## 
-1. There are only two things you need to run the script: your fastq files (forward and reverse in _1.fastq and _2.fastq format
-2. Now, you must run the python_wrapper script with the command: **python python_wrapper.py**
-Once samples are downloaded, (one forward and reverse read file for each sample) you will have to run the python_wrapper.py script with the following command: python python_wrapper.py.  Likewise, you can clone the whole repository and you will have access too all the files needed to run the python_wrapper.py script
-2. The script should run in about 2-3 minutes and will produce many output files. A description follows below:
-   a) SampleName_filtered.*.fastq: these are the filtered fastq files, filtered to keep only the reads that map to the index, in this case the HCMV index.
-   b) HCMV_index.*.bt2 : Bowtie2 produces multiple index files because it divides the index into multiple parts for efficient memory usage and faster alignment. Each of these index files serves a different purpose and will be used in the alignment process
-   c) blast_hits.csv: Contains the top 10 blast hits to the ncbi database created.
-   d) temp.log: this is just a temporary log file that will be combined with the blast_hits.csv file later to produce the final log file.
-  e) PipelineProject.log: THIS IS THE MOST IMPORTANT file that reports the number of reads in each sample before and after filtering, the numver of contigs in the assembly that are larger than 1000 bp, the number of base pairs in the assembly, and a table with information for the top 10 blast hits. 
->>>>>>> 7dedfc28a197838178c37d4f8f640040f265e028
+We have identified a bug affecting Mac Safari users. When downloading data from the NCBI Datasets web interface, you may see only this README file after the download has completed (while other files appear to be missing).
+As a workaround to prevent this issue from recurring, we recommend disabling automatic zip archive extraction in Safari until Apple releases a bug fix.
+For more information, visit:
+https://www.ncbi.nlm.nih.gov/datasets/docs/reference-docs/mac-zip-bug/
+
+### How do I work with JSON Lines data reports?
+
+Visit our JSON Lines data report documentation page:
+https://www.ncbi.nlm.nih.gov/datasets/docs/v2/tutorials/working-with-jsonl-data-reports/
+
+### What is NCBI Datasets?
+
+NCBI Datasets is a new resource that lets you easily gather data from across NCBI databases. Find and download gene, transcript, protein and genome sequences, annotation and metadata.
+
+### Where can I find NCBI Datasets documentation?
+
+Visit the NCBI Datasets documentaion pages:
+https://www.ncbi.nlm.nih.gov/datasets/docs/
+
+---
+
+National Center for Biotechnology Information
+National Library of Medicine
+info@ncbi.nlm.nih.gov
